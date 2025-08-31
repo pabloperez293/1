@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/pabloperez293/1/tree/main/ProyectoPracticoReactjs",
+  "homepage": "https://pabloperez293.github.io/MayoristaLista-Actualizaciones/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
