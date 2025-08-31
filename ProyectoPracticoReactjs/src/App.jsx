@@ -1,14 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Products from './components/products/Products';
 
-const productos = ["manzana", "banana", "pera", "naranja", "kiwi"];
 
 function App() {
-  return (
+  // Inicio de productos
+  const [productos, setProductos] = useState(["Cajon Manzana", "Cajon Banana", "Cajon Pera", "Cajon Naranja", "Cajon Kiwi"]);
+  const [nuevosProductos, setNuevoProducto] = useState("");
+
+  // Agregar products
+  const agregarProducto = () => {
+    if (nuevosProductos.trim() === "") return; // No agrega productos vacíos
+    setProductos([...productos, nuevosProductos]); //agrega nuevo producto
+    setNuevoProducto(""); // Limpia el input
+  }
+  
+  //Eliminar products
+  const eliminarProducto = (index) => {
+    const nuevosProductos = productos.filter((_, i) => i !== index);
+    setProductos(nuevosProductos);
+  }
+    return (
     <>
-      <h1>Listado de productos</h1>
-      <Products items={productos}/>
+      <h1>Bienvenidos a la lista de mis productos</h1>
+      <input type='text' value={nuevosProductos} onChange={(evt) => setNuevoProducto(evt.target.value)}
+      placeholder='Ingrese un nuevo producto'/>
+      <button onClick={agregarProducto}> Agregar </button>
+      
+      <Products items={productos} onEliminar={eliminarProducto} />
       
     </>
   )
