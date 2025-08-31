@@ -1,4 +1,5 @@
 import React from "react";
+import Boton from "../boton/Boton";
 
 const Products = ({ items, onEliminar }) => {
   return (
@@ -7,7 +8,7 @@ const Products = ({ items, onEliminar }) => {
       <ol>
         {items.map((producto, index) => (
           <li key={index}> {producto} 
-          <button onClick={() => onEliminar(index)}> Eliminar </button>
+          <Boton text="Eliminar " onClick={() => onEliminar(index)} tipo="eliminar" />
            </li>
         ))}
       </ol>
